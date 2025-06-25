@@ -14,22 +14,31 @@
 (define (author . text)
   `(h5 ((class "header author")) ,@text))
 
-(define (section . text)
-  `(h3 ((class "section")) ,@text))
-
 (define *book-counter* 0)
+(define *section-counter* 0)
+
 (define (book . title)
   (set! *book-counter* (+ *book-counter* 1))
+  (set! *section-counter* 0)
   `(h2 ((class "book-heading"))
        (div
-        (span ((class "book-counter")) ,(format "Book ~a: " *book-counter*))
+        (span ((class "book-counter")) ,(format "Book ~a" *book-counter*))
         (span ((class "book-title")) ,@title))))
+
+(define (section . _)
+  (set! *section-counter* (+ 1 *section-counter*))
+  `(h3 ((class "section-heading"))
+       ,(format "~a.~a" *book-counter* *section-counter*)))
 
 (define (saying intro . saying)
   `(div ((class "saying"))
         (span ((class "saying-intro")) ,intro)
         (blockquote ((class "saying-quote"))
                     ,@saying)))
+
+(define (syllogism . lines)
+  `(blockquote ((class "syllogism"))
+        ,@(map (λ (l) `(div ((class "prop")) ,l)) lines)))
 
 (define (root . elements)
   (txexpr 'root empty

@@ -40,11 +40,39 @@ h1, h2, h3 {
     margin-bottom: 1rem;
 }
 
+.book-counter {
+    margin-left: -6rem;
+    float: left;
+    clear: left;
+    margin-top: 0;
+    margin-bottom: 0;
+    vertical-align: top;
+    position: relative;
+}
+
+h3.section-heading {
+    font-size: 1rem;
+    margin-left: -3rem;
+    float: left;
+    clear: left;
+    margin-top: 0;
+    margin-bottom: 0;
+    vertical-align: top;
+    position: relative;
+}
+
 .title {
     margin-bottom: 0;
 }
+
 .author {
     margin-top: 0.3rem;
     font-family: var(--f-alt-family);
     font-weight: 300;
+}
+
+.syllogism {
+}
+
+.syllogism .prop {
 }
