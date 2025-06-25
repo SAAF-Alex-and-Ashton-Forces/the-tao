@@ -1,0 +1,34 @@
+/* Variables */
+:root {
+    /* Colors (overridden for dark theme) */
+    --bg: #eeeef0;
+    --f-color: #1e2430;
+    --rule: #434c5e;
+
+    --f-family: Charter, mycharter, Georga, serif;
+    --f-alt-family: CooperHewitt, 'Source Sans 3', system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #151519;
+        --f-color:#eceff4;
+        --rule: #456;
+    }
+}
+
+/* Main styles */
+:root {
+    font-size: 19px;
+}
+
+@media (max-width: 896px) {
+    :root {
+        font-size: 17px;
+    }
+}
+
+body {
+    margin: auto;
+    max-width: 30rem;
+}
