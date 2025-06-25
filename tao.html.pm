@@ -1,5 +1,13 @@
 #lang pollen
 
+◊; You can type the lozenge in Emacs in a few ways:
+◊;
+◊; If you have pollen-mode enabled, just type "@" and it will insert.
+◊; Type "@" twice to insert a real at-sign.
+◊;
+◊; If not, do Ctrl-\ TeX RET to enter TeX input mode, and then type \lozenge
+
+
 ◊title{The Tao of Programming}
 ◊author{Translated by Geoffrey James}
 

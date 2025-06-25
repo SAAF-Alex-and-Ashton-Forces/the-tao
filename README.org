@@ -1,0 +1,33 @@
+#+title: The Tao of Programming, Recast
+
+* Build instructions
+
+Text goes in =tao.html.pm=. You will probably want to install the =pollen-mode= package for Emacs:
+
+#+begin_src emacs-lisp
+  (use-package pollen-mode
+    :defer t)
+#+end_src
+
+This is optional.
+
+You will need [[https://racket-lang.org][Racket]]. Once you have Racket installed, you will need [[https://docs.racket-lang.org/pollen/index.html][Pollen]]:
+
+#+begin_src bash
+  raco pkg install pollen
+#+end_src
+
+Ensure everything is working:
+
+#+begin_src bash
+  $ raco pollen test
+  raco pollen is installed correctly
+#+end_src
+
+Now you can build:
+
+#+begin_src bash
+  raco pollen render src/
+#+end_src
+
+And it should be built in =src/tao.html=.
