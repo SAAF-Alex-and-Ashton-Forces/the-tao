@@ -29,3 +29,23 @@ The user is pleased, and there is harmony in the world.
 }
 
 The Tao of Programming flows far away and returns on the wind of morning.
+
+◊section{}
+
+The Tao gave birth to machine language. Machine language gave birth to the assembler.
+
+The assembler gave birth to the compiler. Now there are ten thousand languages.
+
+Each language has its purpose, however humble. Each language expresses the Yin and Yang of software. Each language has its place within the Tao.
+
+But do not program in COBOL if you can avoid it.
+
+◊section{}
+
+In the beginning was the Tao. The Tao gave birth to Space and Time.
+
+Therefore Space and Time are the Yin and Yang of programming.
+
+Programmers that do not comprehend the Tao are always running out of time and space for their programs. Programmers that comprehend the Tao always have enough time and space to accomplish their goals.
+
+How could it be otherwise?
