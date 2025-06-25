@@ -60,8 +60,8 @@
                                (let ([strlen (string-length str)])
                                  (if (> strlen 0)
                                      (case (substring str (sub1 strlen) strlen)
-                                       [("‘") (list '(squo-push) `(squo-pull ,str))]
-                                       [("“") (list '(dquo-push) `(dquo-pull ,str))]
+                                       [("‘") (list '(squo-open-push) `(squo-open-pull ,str))]
+                                       [("“") (list '(dquo-open-push) `(dquo-open-pull ,str))]
                                        [else (list str)])
                                      (list str)))) substrs))))
 

@@ -3,6 +3,7 @@
     /* Colors (overridden for dark theme) */
     --bg: #eeeef0;
     --f-color: #1e2430;
+    --f-alt-color: #4c566a;
     --rule: #434c5e;
 
     --f-family: Charter, mycharter, Georga, serif;
@@ -13,6 +14,7 @@
     :root {
         --bg: #151519;
         --f-color:#eceff4;
+        --f-alt-color: #d8dee9;
         --rule: #456;
     }
 }
@@ -31,12 +33,19 @@
 
 body {
     margin: auto;
+    margin-bottom: 5rem;
     max-width: 30rem;
+    background-color: var(--bg);
+    color: var(--f-color);
 }
 
-p, div.saying {
-    margin-bottom: 0.5rem;
+p, .saying-quote {
+    margin-bottom: 0.7rem;
     margin-top: 0.5rem;
+}
+
+.saying-quote {
+    font-style: italic;
 }
 
 h3 + p {
@@ -47,6 +56,12 @@ h1, h2, h3 {
     font-family: var(--f-alt-family);
     font-weight: 300;
     margin-bottom: 1rem;
+}
+
+h2 {
+    margin-top: 3rem;
+    border-top: 1px dotted var(--rule);
+    padding-top: 0.7rem;
 }
 
 .book-counter {
@@ -60,11 +75,12 @@ h1, h2, h3 {
 }
 
 h3.section-heading {
+    color: var(--f-alt-color);
     font-size: 1rem;
     margin-left: -3rem;
     float: left;
     clear: left;
-    margin-top: 1.5rem;
+    margin-top: 1.3rem;
     margin-bottom: 0;
     vertical-align: top;
     position: relative;
@@ -85,3 +101,23 @@ h3.section-heading {
 
 .syllogism .prop {
 }
+
+/* snarfed from Butterick */
+/* dquo-open-push, squo-open-push { */
+/*     display: initial; } */
+
+/* dquo-open-push { */
+/*     margin-right: 0.5em; */
+/* } */
+
+/* dquo-open-pull { */
+/*     margin-left: -0.5em; */
+/* } */
+
+/* squo-open-push { */
+/*     margin-right: 0.25em; */
+/* } */
+
+/* squo-open-pull { */
+/*     margin-left: -0.25em; */
+/* } */
