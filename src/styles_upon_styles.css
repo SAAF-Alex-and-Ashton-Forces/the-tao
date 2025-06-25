@@ -20,6 +20,7 @@
 /* Main styles */
 :root {
     font-size: 19px;
+    font-family: var(--f-family);
 }
 
 @media (max-width: 896px) {
@@ -31,4 +32,19 @@
 body {
     margin: auto;
     max-width: 30rem;
+}
+
+h1, h2, h3 {
+    font-family: var(--f-alt-family);
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+.title {
+    margin-bottom: 0;
+}
+.author {
+    margin-top: 0.3rem;
+    font-family: var(--f-alt-family);
+    font-weight: 300;
 }

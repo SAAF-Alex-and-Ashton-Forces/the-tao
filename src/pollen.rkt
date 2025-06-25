@@ -15,14 +15,15 @@
   `(h5 ((class "header author")) ,@text))
 
 (define (section . text)
-  `(h2 ((class "section")) ,@text))
+  `(h3 ((class "section")) ,@text))
 
 (define *book-counter* 0)
 (define (book . title)
   (set! *book-counter* (+ *book-counter* 1))
   `(h2 ((class "book-heading"))
-       (span ((class "book-counter")) (format "Book ~a" *book-counter*))
-       (span ((class "book-title") ,@title))))
+       (div
+        (span ((class "book-counter")) ,(format "Book ~a: " *book-counter*))
+        (span ((class "book-title")) ,@title))))
 
 (define (saying intro . saying)
   `(div ((class "saying"))
@@ -59,6 +60,8 @@
   `(details ()
             (summary () ,summary)
             ,@body))
+
+(define (link url text) `(a ((href ,url)) ,text))
 
 (define (make-toc elements)
   `(div ((class "toc"))
