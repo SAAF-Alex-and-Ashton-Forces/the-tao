@@ -151,7 +151,7 @@ h3.section-heading {
         position: relative;
     }
 
-    h3 + p {
+    h3 + p, h3 + blockquote {
         margin-top: 2rem;
     }
 }
