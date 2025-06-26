@@ -22,7 +22,7 @@
   (set! *section-counter* 0)
   `(h2 ((class "book-heading"))
        (div
-        (span ((class "book-counter")) ,(format "Book ~a" *book-counter*))
+        (span ((class "book-counter")) ,(format "Book ~a " *book-counter*))
         (span ((class "book-title")) ,@title))))
 
 (define (section . _)

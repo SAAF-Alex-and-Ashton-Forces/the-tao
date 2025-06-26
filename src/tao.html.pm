@@ -111,3 +111,66 @@ The Master replied: "That programmer has mastered the Tao. He has gone beyond th
 
 
 ◊book{Design}
+
+◊saying["Thus spake the Master Programmer:"]{
+When a program is being being tested, it is too late to make design changes.
+}
+
+
+◊section{}
+
+There once was a man who went to a computer trade show.  Each day as he entered, the man told the guard at the door:
+
+"I am a great thief, renowned for my feats of shoplifting.  Be forewarned, for this trade show shall not escape unplundered."
+
+This speech disturbed the guard greatly, because there were millions of dollars of computer equipment inside, so he watched the man carefully. But the man merely wandered from booth to booth, humming quietly to himself.
+
+When the man left, the guard took him aside and searched his clothes, but nothing was to be found.
+
+On the next day of the trade show, the man returned and chided the guard, saying: "I escaped with a vast booty yesterday, but today will be even better." So the guard watched him ever more closely, but to no avail.
+
+On the final day of the trade show, the guard could restrain his curiosity no longer. "Sir Thief," he said, "I am so perplexed, I cannot live in peace. Please enlighten me. What is it that you are stealing?"
+
+The man smiled. "I am stealing ideas," he said.
+
+
+◊section{}
+
+There once was a Master Programmer who wrote unstructured programs. A novice programmer, seeking to imitate him, also began to write unstructured programs. When the novice asked the Master to evaluate his progress, the Master criticized him for writing unstructured programs, saying, "What is appropriate for the Master is not appropriate for the novice. You must understand Tao before transcending structure."
+
+
+◊section{}
+
+There was once a programmer who was attached to the court of the warlord of Wu. The warlord asked the programmer: "Which is easier to design: an accounting package or an operating system?"
+
+"An operating system," replied the programmer.
+
+The warlord uttered an exclamation of disbelief.  "Surely an accounting package is trivial next to the complexity of an operating system," he said.
+
+"Not so," said the programmer, "When designing an accounting package, the programmer operates as a mediator between people having different ideas: how it must operate, how its reports must appear, and how it must conform to the tax laws.  By contrast, an operating system is not limited by outside appearances.  When designing an operating system, the programmer seeks the simplest harmony between machine and ideas. This is why an operating system is easier to design."
+
+The warlord of Wu nodded and smiled.  "That is all good and well, but which is easier to debug?"
+
+The programmer made no reply.
+
+
+◊section{}
+
+A manager went to the Master Programmer and showed him the requirements document for a new application.  The manager asked the Master: "How long will it take to design this system if I assign five programmers to it?"
+
+"It will take one year," said the Master promptly.
+
+"But we need this system immediately or even sooner! How long will it take if I assign ten programmers to it?"
+
+The Master Programmer frowned. "In that case, it will take two years."
+
+"And what if I assign a hundred programmers to it?"
+
+The Master Programmer shrugged. "Then the design will never be completed," he said.
+
+
+◊book{Coding}
+
+◊saying["Thus spake the Master Programmer:"]{
+A well-written program is its own Heaven; a poorly-written program is its own Hell.
+}
