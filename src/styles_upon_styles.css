@@ -53,6 +53,14 @@ a {
     font-style: italic;
 }
 
+.call-response {
+    margin-top: 0.5rem;
+}
+
+.response {
+    font-style: italic;
+}
+
 h1, h2, h3 {
     font-family: var(--f-alt-family);
     font-weight: 300;

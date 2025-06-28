@@ -44,6 +44,13 @@
   `(blockquote ((class "syllogism"))
         ,@(map (λ (l) `(div ((class "prop")) ,l)) lines)))
 
+(define (cr call . response)
+  `(div ((class "call-response"))
+        (div ((class "call"))
+              ,call)
+        (div ((class "response"))
+              ,@response)))
+
 (define (root . elements)
   (txexpr 'root empty
           (decode-elements elements
