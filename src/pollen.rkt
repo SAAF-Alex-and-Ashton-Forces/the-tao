@@ -4,6 +4,10 @@
          syntax/parse/define)
 (provide (all-defined-out))
 
+(define-syntax (inc! stx)
+  (syntax-parse stx
+    [(_ v:id) #'(set! v (+ 1 v))]))
+
 (module setup racket/base
   (provide (all-defined-out))
   #;(define command-char #\@))
@@ -18,7 +22,7 @@
 (define *section-counter* 0)
 
 (define (book . title)
-  (set! *book-counter* (+ *book-counter* 1))
+  (inc! *book-counter*)
   (set! *section-counter* 0)
   (let ([anchor (format "b~a" *book-counter*)])
     `(h2 ((class "book-heading") (id ,anchor))
@@ -28,11 +32,23 @@
           (span ((class "book-title")) ,@title)))))
 
 (define (section . _)
-  (set! *section-counter* (+ 1 *section-counter*))
+  (inc! *section-counter*)
   (let ([anchor (format "s~a.~a" *book-counter* *section-counter*)])
     `(h3 ((class "section-heading")
           (id ,anchor))
          (a ((href ,(format "#~a" anchor))) ,(format "~a.~a" *book-counter* *section-counter*)))))
+
+;; used for Perlisms
+(define *epigram-counter* 0)
+(define (epigram . text)
+  (inc! *epigram-counter*)
+  (let ([anchor (format "e~a" *epigram-counter*)])
+    `(div ((class "epigram"))
+          (h3 ((class "section-heading")
+               (id ,anchor))
+              (a ((href ,(format "#~a" anchor))) ,(format "~a" *epigram-counter*)))
+          (p ((class "epigram-body"))
+             ,@text))))
 
 (define (saying intro . saying)
   `(div ((class "saying"))
