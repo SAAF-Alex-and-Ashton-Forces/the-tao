@@ -89,7 +89,7 @@
 
 ◊epigram{In software systems, it is often the early bird that makes the worm.}
 
-44.Sometimes I think the only universal in the computing field is the fetch-execute cycle.
+◊epigram{Sometimes I think the only universal in the computing field is the fetch-execute cycle.}
 
 ◊epigram{The goal of computation is the emulation of our synthetic abilities, not the understanding of our analytic ones.}
 

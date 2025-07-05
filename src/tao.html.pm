@@ -7,6 +7,9 @@
 ◊;
 ◊; If not, do Ctrl-\ TeX RET to enter TeX input mode, and then type \lozenge
 
+◊meta/keywords{tao of programming, dao of programming, hacker lore}
+◊meta/prop["og:description"]{The Tao of Programming, formatted for the modern web}
+◊meta['description]{The Tao of Programming, formatted for the modern web}
 
 ◊title{The Tao of Programming}
 ◊author{Translated by Geoffrey James}

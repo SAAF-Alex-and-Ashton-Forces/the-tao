@@ -4,6 +4,29 @@
          syntax/parse/define)
 (provide (all-defined-out))
 
+(define *page-metadata* (make-hash))
+(define *page-metadata/props* (make-hash))
+
+(define (meta/keywords txt)
+  (hash-set! *page-metadata* 'keywords txt)
+  '(div))
+
+(define (meta/prop prop-name txt)
+  (hash-set! *page-metadata/props* prop-name txt)
+  '(div))
+
+(define (meta prop-name txt)
+  (hash-set! *page-metadata* prop-name txt)
+  '(div))
+
+(define (metadata)
+  #;`(meta ((keywords ,(hash-ref *page-metadata* 'keywords (λ () "")))))
+  `(div
+    ,@(hash-map *page-metadata* (λ (p v) `(meta ((name ,p) (content ,v)))))
+    ,@(hash-map *page-metadata/props* (λ (p v) `(meta ((property ,p) (content ,v)))))
+    (meta ((keywords ,(hash-ref *page-metadata* 'keywords (λ () "")))))
+    ))
+
 (define-syntax (inc! stx)
   (syntax-parse stx
     [(_ v:id) #'(set! v (+ 1 v))]))
@@ -12,14 +35,15 @@
   (provide (all-defined-out))
   #;(define command-char #\@))
 
+(define *book-counter* 0)
+(define *section-counter* 0)
+
 (define (title . text)
+  (set! *book-counter* 0)
   `(h1 ((class "header title")) ,@text))
 
 (define (author . text)
   `(h5 ((class "header author")) ,@text))
-
-(define *book-counter* 0)
-(define *section-counter* 0)
 
 (define (book . title)
   (inc! *book-counter*)
@@ -38,13 +62,28 @@
           (id ,anchor))
          (a ((href ,(format "#~a" anchor))) ,(format "~a.~a" *book-counter* *section-counter*)))))
 
+(define (book* . title)
+  (inc! *book-counter*)
+  (set! *section-counter* 0)
+  (let ([anchor (format "b~a" *book-counter*)])
+    `(h2 ((class "book-heading") (id ,anchor))
+         (a ((href ,(format "#~a" anchor)))
+          #;(span ((class "book-counter")) ,(format "Book ~a " *book-counter*))
+          (span ((class "book-title")) ,@title)))))
+
 ;; used for Perlisms
 (define *epigram-counter* 0)
+#;(define (epigram . _)
+  (inc! *epigram-counter*)
+  (let ([anchor (format "e~a" *book-counter* *epigram-counter*)])
+    `(h3 ((class "section-heading")
+          (id ,anchor))
+         (a ((href ,(format "#~a" anchor))) ,(format "~a" *epigram-counter*)))))
 (define (epigram . text)
   (inc! *epigram-counter*)
   (let ([anchor (format "e~a" *epigram-counter*)])
     `(div ((class "epigram"))
-          (h3 ((class "section-heading")
+          (h3 ((class "epigram-heading")
                (id ,anchor))
               (a ((href ,(format "#~a" anchor))) ,(format "~a" *epigram-counter*)))
           (p ((class "epigram-body"))
@@ -68,14 +107,14 @@
               ,@response)))
 
 (define (root . elements)
-  (txexpr 'root empty
+  (txexpr 'article empty
           (decode-elements elements
                            #:txexpr-elements-proc decode-paragraphs
                            #:exclude-tags '(code pre codeblock)
                            #:string-proc (compose1
-                                          #;make-quotes-hangable
                                           smart-quotes
                                           smart-dashes
+                                          ;; wrap-hanging-quotes
                                           smart-ellipses))))
 
 ;; snarfed from https://docs.racket-lang.org/pollen-tfl/_pollen_rkt_.html#%28def._%28%28lib._pollen-tfl%2Fpollen..rkt%29._make-quotes-hangable%29%29
@@ -97,7 +136,18 @@
             (summary () ,summary)
             ,@body))
 
-(define (link url text) `(a ((href ,url)) ,text))
+(define (link url . text) `(a ((href ,url)) ,@text))
+
+(define (it . text)
+  `(span ((style "font-style: italic")) ,@text))
+
+(define (itemize-nav . things)
+  (let ([things (filter (λ (x) (not (and (string? x)
+                                         (not (regexp-match #px"[[:graph:]]" x)))))
+                        things)])
+    `(nav
+      (ul
+       ,@(map (λ (i) `(li ,i)) things)))))
 
 (define (make-toc elements)
   `(div ((class "toc"))
