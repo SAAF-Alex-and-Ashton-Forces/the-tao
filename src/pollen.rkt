@@ -106,6 +106,19 @@
         (div ((class "response"))
               ,@response)))
 
+(define (verse . lines)
+  `(div ((class "verse"))
+        ,@(map (λ (l) `(div ((class "verse-line")) ,l)) lines)))
+
+(define *note-counter* 0)
+(define (inline-note . text)
+  (inc! *note-counter*)
+  (let ([popover-id (format "note-popover-~a" *note-counter*)])
+    `(span ((class "inline-note"))
+           (button ((class "note-counter") (popovertarget ,popover-id)) ,(format "[~a]" *note-counter*))
+           (div ((class "note-contents") (popover "") (id ,popover-id))
+                ,@text))))
+
 (define (root . elements)
   (txexpr 'article empty
           (decode-elements elements

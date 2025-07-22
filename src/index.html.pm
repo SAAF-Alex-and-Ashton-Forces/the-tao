@@ -4,11 +4,13 @@
 
 A collection of hacker lore, lovingly re-typeset for the modern web.
 
-◊book*{Contents}
+◊book*{Hacker Lore}
 
 ◊itemize-nav{
   ◊link["/tao.html"]{◊it{The Tao of Programming}, by Geoffrey James}
   ◊link["/perlis.html"]{◊it{Epigrams in Programming}, by Alan Perlis}
+  ◊link["/mel.html"]{◊it{The Story of Mel}, by Ed Nather}
+  ◊link["/magic.html"]{◊it{A Story About Magic}}
 }
 
 
@@ -27,4 +29,4 @@ We (the maintainers of Uncarved Bytes) do not own any of the stories; we are mer
 
 The body font is ◊link["https://practicaltypography.com/charter.html"]{Bitstream Charter} by Matthew Carter. The heading font is ◊link["https://www.cooperhewitt.org/open-source-at-cooper-hewitt/cooper-hewitt-the-typeface-by-chester-jenkins/"]{Cooper Hewitt} by Chester Jenkins.
 
-This site was built with ◊link["https://docs.racket-lang.org/pollen/"]{Pollen} by Matthew Butterick and other contributors. The pages and CSS were all hand-written. We used Emacs—the one true text editor—throughout the project.
+This site was built with ◊link["https://docs.racket-lang.org/pollen/"]{Pollen} by Matthew Butterick and other contributors. The pages and CSS were all hand-written. We used ◊link["https://emacs.org/"]{Emacs}—the one true text editor—throughout the project.

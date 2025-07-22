@@ -30,6 +30,17 @@
       have any. Enjoy!
     </noscript>
 
+    <!-- This is a work-around for a bug in Safari's rendering. -->
+    <div style="line-height: 0">&nbsp;</div>
+
+    ◊when/splice[(parent here)]{
+    <header>
+      <nav>
+        <a href="/index.html">Uncarved Bytes</a>
+      </nav>
+    </header>
+    }
+
     <main>
       ◊(->html ◊doc)
     </main>
@@ -40,7 +51,8 @@
           ◊when/splice[(previous here)]{<a href="◊(previous here)">Previous</a>}
         </div>
         <div>
-          <a href="/index.html">Top</a>
+          <!-- <a href="/index.html">Top</a> -->
+          ◊when/splice[(parent here)]{<a href="◊(parent here)">Up</a> }
         </div>
         <div>
           ◊when/splice[(next here)]{<a href="◊(next here)">Next</a>}

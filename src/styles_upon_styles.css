@@ -39,7 +39,7 @@ body {
     hanging-punctuation: first last allow-end;
 }
 
-p, .saying-quote, .epigram {
+p, .saying-quote, .epigram, .verse {
     margin-bottom: 0.8rem;
     margin-top: 0.5rem;
 }
@@ -64,6 +64,10 @@ a {
 h1, h2, h3 {
     font-family: var(--f-alt-family);
     font-weight: 300;
+}
+
+h1 {
+    font-size: 2rem;
 }
 
 h2 {
@@ -119,6 +123,23 @@ p.epigram-body {
 }
 
 .syllogism .prop {
+}
+
+button.note-counter {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--f-alt-color);
+    font-family: var(--f-alt-family);
+}
+
+header nav {
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    /* border-bottom: 1px dotted var(--rule); */
+    color: var(--f-alt-color);
+    font-family: var(--f-alt-family);
+    font-size: 0.8rem;
 }
 
 main nav a {
@@ -181,6 +202,20 @@ footer nav div:last-of-type {
 @media (min-width: 896px) {
     :root {
         font-size: 19px;
+    }
+
+    header nav {
+        font-size: 1rem;
+        max-width: 4rem;
+        text-align: right;
+        margin-left: -6rem;
+        padding-top: 1.65rem;
+        float: left;
+        clear: left;
+        margin-top: 0;
+        margin-bottom: 0;
+        vertical-align: top;
+        position: relative;
     }
 
     .book-counter {

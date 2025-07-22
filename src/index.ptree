@@ -1,5 +1,9 @@
 #lang pollen
 
 index.html
-tao.html
-perlis.html
+◊lore.html{
+  tao.html
+  perlis.html
+  mel.html
+  magic.html
+}
