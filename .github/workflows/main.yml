@@ -1,0 +1,63 @@
+on:
+  push:
+    branches:
+    - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  # Build job
+  build:
+    # Specify runner +  build & upload the static files as an artifact
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Racket
+        uses: Bogdanp/setup-racket@v1.6.1
+        with:
+          architecture: 'x64'
+          distribution: 'full'
+          version: '8.15'
+
+      - name: Save version
+        run: racket --version > .racket-version
+
+      - name: Cache Racket dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/racket
+            ~/.local/share/racket
+          key: ${{ runner.os }}-racket-current-${{ hashFiles('.racket-version') }}
+
+      - name: Install Pollen and Gregor
+        run: |
+          raco pkg install --auto --skip-installed pollen gregor
+
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Render Pollen project
+        run: |
+          raco pollen render src/
+          raco pollen publish src/ site/
+
+      - name: Upload static files as artifact
+        id: deployment
+        uses: actions/upload-pages-artifact@v3 # or specific "vX.X.X" version tag for this action
+        with:
+          path: src/
+
+  # # Deployment job
+  # deploy:
+  #   environment:
+  #     name: github-pages
+  #     url: ${{ steps.deployment.outputs.page_url }}
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   steps:
+  #     - name: Deploy to GitHub Pages
+  #       id: deployment
+  #       uses: actions/deploy-pages@v4
