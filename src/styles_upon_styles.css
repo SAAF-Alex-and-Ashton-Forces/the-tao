@@ -198,12 +198,11 @@ footer nav div:last-of-type {
 /*     margin-left: -0.25em; */
 /* } */
 
-/* Desktop styles */
-@media (min-width: 896px) {
-    :root {
-        font-size: 19px;
-    }
+:root {
+    font-size: clamp(17px, 4vw, 20px);
+}
 
+@media (min-width: 1000px) {
     header nav {
         font-size: 1rem;
         max-width: 4rem;
