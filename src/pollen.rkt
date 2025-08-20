@@ -119,9 +119,9 @@
            (div ((class "note-contents") (popover "") (id ,popover-id))
                 ,@text))))
 
-(define *mel-refs* (parse-refs "mel_annotations.txt"))
 (define (parse-refs filename)
   (make-hash))
+(define *mel-refs* (parse-refs "mel_annotations.txt"))
 
 (define (mel-ref num)
   `(span ((class "inline-note"))
